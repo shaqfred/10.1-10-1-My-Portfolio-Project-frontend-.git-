@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 
 const apiURL= (`http://localhost:4005`);
@@ -27,6 +27,7 @@ function ShowPage() {
                    <p>${item.price}</p>
                    <p>{item.isfavorite}</p>
                     {/* Display the item details */}
+                    <Link to={`/vintages/edit/${id}`}>Edit item</Link>
                 </div>
             ) : (
                 <p>Loading...</p>

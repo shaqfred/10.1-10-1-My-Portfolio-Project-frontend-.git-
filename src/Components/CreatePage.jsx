@@ -14,7 +14,7 @@ function CreatePage() {
     });
     
 
-    const apiURL= (`http://localhost:4005`);
+    const apiURL= `http://localhost:4005`;
     //  const navigate =useNavigate()
 
     const handleInputChange = (event) => {
@@ -22,7 +22,7 @@ function CreatePage() {
             ...vintageData,
             [event.target.id]: event.target.value
         });
-   
+    }
    
         const handleSubmit = (event) => {
             event.preventDefault();
@@ -52,12 +52,12 @@ function CreatePage() {
     return (
         <div>
   
-
+          <h1>Add Vintage Clothing Item</h1>
                 {/* Form fields */}
                 {/* Rest of your form */}
                 <form onSubmit={handleSubmit} >
 
-                <h1>Add Vintage Clothing Item</h1>
+                
                
                 <label htmlFor="name">Name:</label>
                     {" "}
@@ -102,10 +102,11 @@ function CreatePage() {
                         <label htmlFor="isfavorite">
                             isfavorite: </label>
                             <input
-                            type="text"
+                            type="checkbox"
                             value={vintageData.isfavorite}
                             placeholder="isfavorite"
                             onChange={handleInputChange}
+
                             required />
 
                             
@@ -117,5 +118,5 @@ function CreatePage() {
         </div>
    ) 
 }
-}
+
 export default CreatePage;   

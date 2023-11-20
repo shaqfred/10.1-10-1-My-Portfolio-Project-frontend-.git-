@@ -18,8 +18,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/vintages" element={<IndexPage />} />
         <Route path="/vintages/shows/:id" element={<ShowPage />} />
-        <Route path="vintages/create" element={<CreatePage />} />
-        <Route path="vintages/edit/:id" element={<EditPage />} />
+        <Route path="/vintages/create" element={<CreatePage />} />
+        <Route path="/vintages/edit/:id" element={<EditPage />} />
         <Route path="*" element={<ErrorPage />} />
 
       </Routes>
