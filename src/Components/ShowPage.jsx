@@ -25,7 +25,6 @@ function ShowPage() {
                    <h3>{item.style}</h3>
                    <h4>{item.category}</h4>
                    <p>${item.price}</p>
-                   <p>{item.color}</p>
                    <p>{item.isfavorite}</p>
                     {/* Display the item details */}
                 </div>

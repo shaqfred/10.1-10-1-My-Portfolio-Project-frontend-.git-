@@ -1,7 +1,10 @@
 export default function HomePage() {
     return (
         <div>
-            <h1>Welcome to My Portfolio Project</h1>
+            <h1>Welcome to My Portfolio Project of Vintage Clothing
+
+
+            </h1>
 
             </div>
     )

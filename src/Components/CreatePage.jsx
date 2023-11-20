@@ -1,5 +1,6 @@
 import {useState}from "react"
-// import { useNavigate } from "react-dom";
+//  import { useNavigate } from "react-dom";
+import "./createpage.css"
 
 
 function CreatePage() {
@@ -9,7 +10,6 @@ function CreatePage() {
         style: "",
         category: "",
         price: "",
-        color: "",
         isfavorite: "",
     });
     
@@ -17,13 +17,17 @@ function CreatePage() {
     const apiURL= (`http://localhost:4005`);
     //  const navigate =useNavigate()
 
-    const handleTextChange = (event) => {
+    const handleInputChange = (event) => {
         setVintageData({
             ...vintageData,
             [event.target.id]: event.target.value
         });
    
-    
+   
+        const handleSubmit = (event) => {
+            event.preventDefault();
+             
+         
     
         fetch(`${apiURL}/vintages`,{
             method: "POST",
@@ -33,93 +37,82 @@ function CreatePage() {
             }
         })
         .then((response)=>{
+            setVintageData(response.data)
 
          
-            // navigate("/vintages")
+            //  navigate("/vintages")
         })
         .catch((error)=>{
             console.log(error)
             setVintageData("error")
         })  
-        const handleSubmit = (event) => {
-            event.preventDefault();
-             
-         
+        
     
     }
     return (
         <div>
   
-            <h1>Add Vintage Clothing Item</h1>
 
                 {/* Form fields */}
                 {/* Rest of your form */}
                 <form onSubmit={handleSubmit} >
+
+                <h1>Add Vintage Clothing Item</h1>
                
-                <label>
+                <label htmlFor="name">Name:</label>
                     {" "}
-                    Name:
+                   
                     <input
                     type="text"
                     value={vintageData.name}
                     placeholder="Name"
-                    onChange={handleTextChange}
+                    onChange={handleInputChange}
                     required
-                    />
-                </label>
-                <label>
-                    Style:
+                />
+                <label htmlFor="style">
+                    Style:</label>
                     <input
                     type="text"
                     value={vintageData.style}
                     placeholder="Style"
-                    onChange={handleTextChange} 
+                    onChange={handleInputChange} 
                     required/>
-                </label>
+                
                 <label htmlFor="Category">
-                    Category:
+                    Category:</label>
                     <input
                     type="text"
                     value={vintageData.category}
                     placeholder="Category"
-                    onChange={handleTextChange}
+                    onChange={handleInputChange}
                     required />
 
-                </label>
+               
                     <label htmlFor="price">
-                         Price:
+                         Price:</label>
                         <input
                         type="number"
                         value={vintageData.price}
                         placeholder="Price"
-                        onChange={handleTextChange}
+                        onChange={handleInputChange}
                         required />
 
-                        </label>
-                        <label htmlFor="color">
-                            Color:
-                            <input
-                            type="text"
-                            value={vintageData.color}
-                            placeholder="Color"
-                            onChange={handleTextChange}
-                            required />
-
-                        </label>
+                        
+                        
                         <label htmlFor="isfavorite">
-                            isfavorite:
+                            isfavorite: </label>
                             <input
                             type="text"
                             value={vintageData.isfavorite}
                             placeholder="isfavorite"
-                            onChange={handleTextChange}
+                            onChange={handleInputChange}
                             required />
 
                             
-                        </label>
+                        
                 
         <button type="submit">submit</button>
-                <input type="submit">submit</input>
+                
             </form>
         </div>
    ) 

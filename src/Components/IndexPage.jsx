@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-// import './indexPage.css'
+ import './indexPage.css'
 
 const apiURL= (`http://localhost:4005`);
 
@@ -11,7 +11,7 @@ const IndexPage = () => {
     const [vintageClothing, setVintageClothing] = useState([])
 
     useEffect(() => {
-        fetch(`${apiURL}/vintage`)
+        fetch(`${apiURL}/vintages`)
             .then((response) => {
                 return response.json();
             })
@@ -28,7 +28,7 @@ const IndexPage = () => {
             <ul>
                 {vintageClothing.map((vintage) => (
                     <li key={vintage.id}>
-                        <Link to={`/vintage/shows/${vintage.id}`}>{vintage.name}{vintage.style}{vintage.category}
+                        <Link to={`/vintages/shows/${vintage.id}`}>{vintage.name}{vintage.style}{vintage.category}{vintage.price}{vintage.isfavorite}
                         </Link>
                     </li>
                 ))}
