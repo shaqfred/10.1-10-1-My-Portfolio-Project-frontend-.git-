@@ -5,7 +5,6 @@ import "./createpage.css"
 
 function CreatePage() {
     const [vintageData, setVintageData] = useState({
-        
         name: "",
         style: "",
         category: "",
@@ -63,27 +62,30 @@ function CreatePage() {
                     {" "}
                    
                     <input
+                    id="name"
                     type="text"
                     value={vintageData.name}
-                    placeholder="Name"
+                     placeholder="Name"
                     onChange={handleInputChange}
                     required
                 />
                 <label htmlFor="style">
                     Style:</label>
                     <input
+                    id= 'style'
                     type="text"
                     value={vintageData.style}
-                    placeholder="Style"
+                     placeholder="Style"
                     onChange={handleInputChange} 
                     required/>
                 
-                <label htmlFor="Category">
+                <label htmlFor="category">
                     Category:</label>
                     <input
+                    id="category"
                     type="text"
                     value={vintageData.category}
-                    placeholder="Category"
+                     placeholder="Category"
                     onChange={handleInputChange}
                     required />
 
@@ -91,23 +93,26 @@ function CreatePage() {
                     <label htmlFor="price">
                          Price:</label>
                         <input
+                        id="price"
                         type="number"
                         value={vintageData.price}
-                        placeholder="Price"
+                         placeholder="Price"
                         onChange={handleInputChange}
                         required />
+                        
 
                         
                         
                         <label htmlFor="isfavorite">
                             isfavorite: </label>
                             <input
+                            id="isfavorite"
                             type="checkbox"
                             value={vintageData.isfavorite}
                             placeholder="isfavorite"
                             onChange={handleInputChange}
 
-                            required />
+                            />
 
                             
                         

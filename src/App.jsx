@@ -7,6 +7,7 @@ import ShowPage from './Components/ShowPage.jsx'
 import NavBar from './Components/NavBar.jsx'
 import EditPage from './Components/EditPage.jsx'
 import ErrorPage from'./Components/ErrorPage.jsx'
+import EditItems from './Components/EditItems.jsx'
 import './App.css'
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path="/vintages/create" element={<CreatePage />} />
         <Route path="/vintages/edit/:id" element={<EditPage />} />
         <Route path="*" element={<ErrorPage />} />
+        <Route path="/vintages/delete/:id" element={<EditItems/>} />
 
       </Routes>
     </Router>

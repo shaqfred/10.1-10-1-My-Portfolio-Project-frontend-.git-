@@ -25,9 +25,9 @@ function vintageEditForm() {
 
 
   const updateVintages = () => {
-    console.log(`${apiURL}/vintages/${id}`);
+     console.log(`${apiURL}/vintages/${id}`);
 
-    fetch(`${apiURL}}/vintages/${id}`, {
+    fetch(`${apiURL}/vintages/${id}`, {
       method: "PUT",
       body: JSON.stringify(vintage),
       headers: {
@@ -37,7 +37,7 @@ function vintageEditForm() {
       .then((response) => {
         
       })
-      .catch((error) => console.error("catch", error));
+      .catch((error) => console.error( error));
   };
 
 
@@ -49,7 +49,7 @@ function vintageEditForm() {
       .then((responseJSON) => {
         setVintage(responseJSON);
       })
-      .catch((error) => console.error(error));
+      .catch((error) => console.error("catch", error));
   }, [id]);
 
   const handleSubmit = (event) => {
@@ -90,18 +90,21 @@ function vintageEditForm() {
 <label htmlFor="price">Price:</label>
         <input
           id="price"
-          type="integer"
+          type="number"
           name="price"
-          value={vintage.category}
+          value={vintage.price}
         
-          onChange={handleTextChange}></input>
-
+          onChange={handleTextChange}
+          required
+          ></input>
+        
         <label htmlFor="isFavorite">Favorite:</label>
         <input
           id="isFavorite"
           type="checkbox"
           onChange={handleCheckboxChange}
           checked={vintage.isfavorite}
+         
         />
         
        
@@ -110,7 +113,7 @@ function vintageEditForm() {
         <input type="submit" />
       </form>
       <Link to={`/vintages/${id}`}>
-        <button>submit</button>
+        <button type="submit">submit</button>
       </Link>
     </div>
   );
